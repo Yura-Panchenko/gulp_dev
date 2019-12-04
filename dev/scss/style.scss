@@ -1,0 +1,25 @@
+body {
+  background: #f00;
+  display: flex;
+}
+
+@keyframes identifier {
+  from { color: #000; }
+  to { color: #f00; }
+}
+
+body {
+  color: #000;
+}
+
+h1 {
+  color: #f00;
+}
+
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 10px;
+}
