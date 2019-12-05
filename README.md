@@ -48,6 +48,7 @@
 
 ## Установка плагинов
 * gulp-pug - <https://www.npmjs.com/package/gulp-pug> ( npm i gulp-pug --save-dev )
+
   --
   gulp.task('pug',function(){
     return gulp.src('dev/pug/*.pug') // - указываем что надо собирать
@@ -58,11 +59,13 @@
   })
   --
 * gulp-load-plugins - <https://www.npmjs.com/package/gulp-load-plugins> ( npm i gulp-load-plugins --save-dev )
+
   позволяет не писать подключаемый плагин в общий список плагинов, а подключать через переменную
   --
   gp   = require('gulp-load-plugins')();
   --
 * gulp-sass <https://www.npmjs.com/package/gulp-sass> ( npm i gulp-sass --save-dev )
+
   отвечает за компиляцию SCSS
   --
   gulp.task('scss',function(){
@@ -72,6 +75,7 @@
   });
   --
 * gulp-csso <https://github.com/ben-eb/gulp-csso> ( npm install gulp-csso --save-dev )
+
   отвечает за:
   - минификацию css
   - объединяет свойства одинаковых селекторов
@@ -85,10 +89,12 @@
   }))
   --
 * gulp-autoprefixer <https://www.npmjs.com/package/gulp-autoprefixer> (npm install --save-dev gulp-autoprefixer)
+
   --
   .pipe(gp.autoprefixer({}))
   --
 * gulp-notify <https://www.npmjs.com/package/gulp-notify> ( npm install --save-dev gulp-notify )
+
   --
   .on("error", gp.notify.onError({
     message: "Error: <%= error.message %>",
@@ -96,6 +102,7 @@
   }))
   --
 * gulp-sourcemaps <https://www.npmjs.com/package/gulp-sourcemaps> ( npm i gulp-sourcemaps --save-dev )
+
   --
   .pipe(gp.sourcemaps.init())
   .
@@ -103,4 +110,3 @@
   .
   .pipe(gp.sourcemaps.write())
   --
-*
