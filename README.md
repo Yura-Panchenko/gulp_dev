@@ -44,45 +44,63 @@
 * cd dev ( переходим в папку dev )
 * mkdir fonts html images inc js pug scss svg ( создаем папки )
 * touch scss/style.scss (coздаем файл стилей style.scss )
+---
 
 ## Установка плагинов
 * gulp-pug - <https://www.npmjs.com/package/gulp-pug> ( npm i gulp-pug --save-dev )
   --
-    gulp.task('pug',function(){
-      return gulp.src('dev/pug/*.pug') // - указываем что надо собирать
-        .pipe(pug({
-          pretty: true // - без этого параметра минимизирует html в одну строку
-        }))
-        .pipe(gulp.dest('public')); // - собирает в указанную папку
-    })
+  gulp.task('pug',function(){
+    return gulp.src('dev/pug/*.pug') // - указываем что надо собирать
+      .pipe(pug({
+        pretty: true // - без этого параметра минимизирует html в одну строку
+      }))
+      .pipe(gulp.dest('public')); // - собирает в указанную папку
+  })
   --
 * gulp-load-plugins - <https://www.npmjs.com/package/gulp-load-plugins> ( npm i gulp-load-plugins --save-dev )
-    позволяет не писать подключаемый плагин в общий список плагинов, а подключать через переменную
+  позволяет не писать подключаемый плагин в общий список плагинов, а подключать через переменную
   --
-    gp   = require('gulp-load-plugins')();
+  gp   = require('gulp-load-plugins')();
   --
 * gulp-sass <https://www.npmjs.com/package/gulp-sass> ( npm i gulp-sass --save-dev )
-    отвечает за компиляцию SCSS
+  отвечает за компиляцию SCSS
   --
-    gulp.task('scss',function(){
-      return gulp.src('dev/scss/style.scss') // - указываем что надо собирать
-        .pipe(gp.sass({}))
-        .pipe(gulp.dest('public')); // - собирает в указанную папку
-    });
+  gulp.task('scss',function(){
+    return gulp.src('dev/scss/style.scss') // - указываем что надо собирать
+      .pipe(gp.sass({}))
+      .pipe(gulp.dest('public')); // - собирает в указанную папку
+  });
   --
 * gulp-csso <https://github.com/ben-eb/gulp-csso> ( npm install gulp-csso --save-dev )
-    отвечает за:
-    - минификацию css
-    - объединяет свойства одинаковых селекторов
+  отвечает за:
+  - минификацию css
+  - объединяет свойства одинаковых селекторов
   --
-    .pipe(gp.csso())
+  .pipe(gp.csso())
   --
-    .pipe(gp.csso({
-        restructure: false, // - По умолчанию используется минимизация структуры для максимального сжатия. Передайте false, если вы хотите отключить эту функцию.
-        sourceMap: true,
-        debug: true
-    }))
+  .pipe(gp.csso({
+    restructure: false, // - По умолчанию используется минимизация структуры для максимального сжатия. Передайте false, если вы хотите отключить эту функцию.
+    sourceMap: true,
+    debug: true
+  }))
+  --
+* gulp-autoprefixer <https://www.npmjs.com/package/gulp-autoprefixer> (npm install --save-dev gulp-autoprefixer)
+  --
+  .pipe(gp.autoprefixer({}))
   --
 * gulp-notify <https://www.npmjs.com/package/gulp-notify> ( npm install --save-dev gulp-notify )
+  --
+  .on("error", gp.notify.onError({
+    message: "Error: <%= error.message %>",
+    title: "Error222 running something"
+  }))
+  --
 * gulp-sourcemaps <https://www.npmjs.com/package/gulp-sourcemaps> ( npm i gulp-sourcemaps --save-dev )
-* gulp-autoprefixer <https://www.npmjs.com/package/gulp-autoprefixer> (npm install --save-dev gulp-autoprefixer)
+  --
+  .pipe(gp.sourcemaps.init())
+  .
+  .
+  .
+  .pipe(gp.sourcemaps.write())
+  --
+*
