@@ -48,6 +48,7 @@
 
 ## Установка плагинов
 * gulp-pug - <https://www.npmjs.com/package/gulp-pug> ( npm i gulp-pug --save-dev )
+'''
     gulp.task('pug',function(){
       return gulp.src('dev/pug/*.pug') // - указываем что надо собирать
         .pipe(pug({
@@ -55,7 +56,7 @@
         }))
         .pipe(gulp.dest('public')); // - собирает в указанную папку
     })
-
+'''
 * gulp-load-plugins - <https://www.npmjs.com/package/gulp-load-plugins> ( npm i gulp-load-plugins --save-dev )
   позволяет не писать подключаемый плагин в общий список плагинов, а подключать через переменную
     gp   = require('gulp-load-plugins')();
