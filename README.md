@@ -60,40 +60,53 @@
 
 * gulp-load-plugins - <https://www.npmjs.com/package/gulp-load-plugins> ( npm i gulp-load-plugins --save-dev )
   позволяет не писать подключаемый плагин в общий список плагинов, а подключать через переменную
+```js
     gp   = require('gulp-load-plugins')();
+```
 
 * gulp-sass <https://www.npmjs.com/package/gulp-sass> ( npm i gulp-sass --save-dev )
   отвечает за компиляцию SCSS
+```js
     gulp.task('scss',function(){
       return gulp.src('dev/scss/style.scss') // - указываем что надо собирать
         .pipe(gp.sass({}))
         .pipe(gulp.dest('public')); // - собирает в указанную папку
     });
+```
 
 * gulp-csso <https://github.com/ben-eb/gulp-csso> ( npm install gulp-csso --save-dev )
   отвечает за:
   - минификацию css
   - объединяет свойства одинаковых селекторов
+```js
     .pipe(gp.csso())
-
+```
+```js
     .pipe(gp.csso({
       restructure: false, // - По умолчанию используется минимизация структуры для максимального сжатия. Передайте false, если вы хотите отключить эту функцию.
       sourceMap: true,
       debug: true
     }))
+```
 
 * gulp-autoprefixer <https://www.npmjs.com/package/gulp-autoprefixer> (npm install --save-dev gulp-autoprefixer)
+```js
     .pipe(gp.autoprefixer({}))
+```
 
 * gulp-notify <https://www.npmjs.com/package/gulp-notify> ( npm install --save-dev gulp-notify )
+```js
     .on("error", gp.notify.onError({
       message: "Error: <%= error.message %>",
-      title: "Error222 running something"
+      title: "Error running something"
     }))
+```
 
 * gulp-sourcemaps <https://www.npmjs.com/package/gulp-sourcemaps> ( npm i gulp-sourcemaps --save-dev )
+```js
     .pipe(gp.sourcemaps.init())
-    .
-    .
-    .
+    //
+    //
+    //
     .pipe(gp.sourcemaps.write())
+```
