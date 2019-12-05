@@ -48,7 +48,7 @@
 
 ## Установка плагинов
 * gulp-pug - <https://www.npmjs.com/package/gulp-pug> ( npm i gulp-pug --save-dev )
-'''
+'''js
     gulp.task('pug',function(){
       return gulp.src('dev/pug/*.pug') // - указываем что надо собирать
         .pipe(pug({
